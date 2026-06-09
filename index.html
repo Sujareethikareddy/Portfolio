@@ -1,0 +1,601 @@
+
+<h2 class="sr-only">Portfolio website for Sujareethika Reddy Gopu — Data Analyst and BI Developer</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D2B55;--navy2:#1A4A8A;--navy3:#2563c4;
+  --teal:#0E6B6B;--teal2:#1D9E75;
+  --amber:#BA7517;--amber2:#EF9F27;
+  --slate:#F4F6FA;--slate2:#E8EDF6;
+  --r:var(--border-radius-lg);
+}
+body{font-family:var(--font-sans);color:var(--color-text-primary);background:transparent}
+
+.port{max-width:780px;margin:0 auto;padding:0 0 4rem}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);
+  border-radius:var(--border-radius-xl);
+  padding:3rem 2.5rem 2.5rem;
+  margin-bottom:2rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(29,158,117,0.12);
+}
+.hero::after{
+  content:'';position:absolute;bottom:-40px;left:30%;
+  width:180px;height:180px;border-radius:50%;
+  background:rgba(37,99,196,0.15);
+}
+.hero-inner{position:relative;z-index:1}
+.hero-top{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.75rem}
+.avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,#1D9E75,#2563c4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:500;color:#fff;flex-shrink:0;
+  border:3px solid rgba(255,255,255,0.2);
+}
+.hero-text{flex:1}
+.hero-name{font-size:28px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:4px}
+.hero-title{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:10px}
+.hero-loc{font-size:13px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:5px}
+.hero-tagline{
+  font-size:16px;color:rgba(255,255,255,0.85);
+  line-height:1.7;margin-bottom:1.5rem;
+  border-left:3px solid #1D9E75;padding-left:1rem;
+}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  font-size:12px;padding:5px 12px;border-radius:999px;
+  background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);
+  border:0.5px solid rgba(255,255,255,0.2);
+}
+.badge.highlight{background:rgba(29,158,117,0.25);border-color:#1D9E75;color:#9FE1CB}
+.hero-cta{display:flex;gap:10px;margin-top:1.5rem;flex-wrap:wrap}
+.btn-primary{
+  padding:10px 22px;border-radius:var(--border-radius-md);
+  background:#1D9E75;color:#fff;font-size:14px;font-weight:500;
+  border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+}
+.btn-secondary{
+  padding:10px 22px;border-radius:var(--border-radius-md);
+  background:transparent;color:rgba(255,255,255,0.85);font-size:14px;
+  border:0.5px solid rgba(255,255,255,0.3);cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+.stat-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--r);padding:1rem;text-align:center;
+}
+.stat-num{font-size:26px;font-weight:500;color:var(--navy2)}
+.stat-label{font-size:12px;color:var(--color-text-secondary);margin-top:2px;line-height:1.4}
+
+/* ── SECTION ── */
+.section{margin-bottom:2rem}
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:1.25rem;
+}
+.section-head h3{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.section-pill{
+  font-size:11px;padding:3px 10px;border-radius:999px;
+  background:var(--color-background-secondary);
+  color:var(--color-text-secondary);
+  border:0.5px solid var(--color-border-tertiary);
+}
+.s-line{flex:1;height:0.5px;background:var(--color-border-tertiary)}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.skill-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--r);padding:1rem;
+}
+.skill-card-icon{
+  width:36px;height:36px;border-radius:var(--border-radius-md);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:10px;
+}
+.skill-card-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px}
+.skill-bar{height:4px;background:var(--color-background-secondary);border-radius:999px;overflow:hidden}
+.skill-fill{height:100%;border-radius:999px;transition:width 1s ease}
+.skill-pct{font-size:11px;color:var(--color-text-secondary);margin-top:4px}
+
+/* ── EXPERIENCE ── */
+.exp-timeline{position:relative;padding-left:28px}
+.exp-timeline::before{
+  content:'';position:absolute;left:9px;top:8px;bottom:8px;
+  width:1.5px;background:var(--color-border-tertiary);
+}
+.exp-item{position:relative;margin-bottom:1.5rem}
+.exp-dot{
+  position:absolute;left:-24px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  border:2px solid var(--color-background-primary);
+  background:#1D9E75;
+}
+.exp-dot.past{background:var(--navy2)}
+.exp-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--r);padding:1.25rem;
+}
+.exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.exp-company{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.exp-role{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.exp-period{font-size:11px;color:var(--color-text-tertiary);white-space:nowrap}
+.exp-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.exp-pill{
+  font-size:11px;padding:3px 9px;border-radius:999px;
+  background:var(--color-background-secondary);
+  color:var(--color-text-secondary);
+  border:0.5px solid var(--color-border-tertiary);
+}
+.exp-bullets{list-style:none;padding:0}
+.exp-bullets li{
+  font-size:13px;color:var(--color-text-secondary);
+  padding:3px 0 3px 14px;line-height:1.6;position:relative;
+}
+.exp-bullets li::before{
+  content:'';position:absolute;left:0;top:10px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--teal2);
+}
+
+/* ── IMPACT ── */
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.impact-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--r);padding:1.25rem;text-align:center;
+}
+.impact-icon{font-size:24px;margin-bottom:8px;color:var(--teal2)}
+.impact-num{font-size:24px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.impact-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.4}
+
+/* ── TECH STACK ── */
+.tech-group{margin-bottom:1rem}
+.tech-group-label{font-size:12px;color:var(--color-text-secondary);font-weight:500;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em}
+.tech-chips{display:flex;flex-wrap:wrap;gap:7px}
+.tech-chip{
+  font-size:12px;padding:5px 12px;
+  border-radius:var(--border-radius-md);
+  border:0.5px solid var(--color-border-secondary);
+  color:var(--color-text-primary);
+  background:var(--color-background-primary);
+}
+.tech-chip.featured{
+  background:rgba(13,107,107,0.08);
+  border-color:rgba(13,107,107,0.3);
+  color:var(--teal);
+}
+
+/* ── CERTS ── */
+.cert-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.cert-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--r);padding:1rem;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.cert-icon{font-size:20px;color:var(--amber2);flex-shrink:0;margin-top:2px}
+.cert-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px;line-height:1.4}
+.cert-issuer{font-size:11px;color:var(--color-text-secondary)}
+
+/* ── CONTACT ── */
+.contact-card{
+  background:var(--navy);
+  border-radius:var(--border-radius-xl);
+  padding:2rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
+  align-items:center;
+}
+.contact-left h3{font-size:20px;font-weight:500;color:#fff;margin-bottom:8px}
+.contact-left p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6}
+.contact-items{display:flex;flex-direction:column;gap:10px}
+.contact-item{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.08);
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+  border:0.5px solid rgba(255,255,255,0.12);
+}
+.contact-item i{font-size:16px;color:#9FE1CB}
+.contact-item a{font-size:13px;color:rgba(255,255,255,0.85);text-decoration:none}
+
+/* ── OPEN TO ── */
+.open-to{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-left:3px solid #1D9E75;
+  border-radius:var(--r);
+  padding:1.25rem 1.5rem;
+  margin-bottom:2rem;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.open-to i{font-size:20px;color:#1D9E75;flex-shrink:0;margin-top:2px}
+.open-to-text{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+.open-to-text strong{color:var(--color-text-primary);font-weight:500}
+
+@media(max-width:500px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .contact-card{grid-template-columns:1fr}
+  .hero-top{flex-direction:column}
+  .hero{padding:2rem 1.5rem}
+}
+</style>
+
+<div class="port">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="avatar">SG</div>
+        <div class="hero-text">
+          <div class="hero-name">Sujareethika Reddy Gopu</div>
+          <div class="hero-title">Data Analyst &amp; BI Developer</div>
+          <div class="hero-loc"><i class="ti ti-map-pin" aria-hidden="true"></i> Rhein-Neckar · Germany · Open to Europe</div>
+        </div>
+      </div>
+      <div class="hero-tagline">
+        5+ years transforming complex enterprise data into measurable business value — across pharma, healthcare, and life sciences — using Power BI, Qlik, Azure, and Python.
+      </div>
+      <div class="badge-row">
+        <span class="badge highlight"><i class="ti ti-chart-bar"></i> Power BI</span>
+        <span class="badge highlight"><i class="ti ti-database"></i> Qlik Sense</span>
+        <span class="badge">Azure · Databricks</span>
+        <span class="badge">DAX · SQL · Python</span>
+        <span class="badge">QlikView · NPrinting</span>
+        <span class="badge">Snowflake · BigQuery</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-primary" href="mailto:sujareethika09@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> Get in touch</a>
+        <a class="btn-secondary" href="https://www.linkedin.com/in/sujareethikareddy-gopu-78543815b" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN TO -->
+  <div class="open-to">
+    <i class="ti ti-bulb" aria-hidden="true"></i>
+    <div class="open-to-text">
+      <strong>Currently exploring opportunities</strong> in Data Science, AI/ML, Advanced Analytics, and Data &amp; AI Consulting across <strong>Germany and Europe</strong>. Available immediately.
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num" style="color:#1D9E75">5+</div>
+      <div class="stat-label">Years experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#2563c4">2,000+</div>
+      <div class="stat-label">Global BI users supported</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#BA7517">20+</div>
+      <div class="stat-label">Countries delivered to</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#0E6B6B">80%</div>
+      <div class="stat-label">Manual reporting eliminated</div>
+    </div>
+  </div>
+
+  <!-- IMPACT -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-trophy" style="color:#BA7517;font-size:18px" aria-hidden="true"></i>
+      <h3>Key impact numbers</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-trending-down" aria-hidden="true"></i></div>
+        <div class="impact-num">45%</div>
+        <div class="impact-desc">Dashboard load time reduced at Cognizant</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-refresh-dot" aria-hidden="true"></i></div>
+        <div class="impact-num">5h → 30m</div>
+        <div class="impact-desc">ETL reporting cycle cut with Airflow &amp; DBT</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-target" aria-hidden="true"></i></div>
+        <div class="impact-num">50%</div>
+        <div class="impact-desc">Forecast accuracy uplift with Prophet ML</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-activity" aria-hidden="true"></i></div>
+        <div class="impact-num">99.99%</div>
+        <div class="impact-desc">BI platform uptime maintained</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div class="impact-num">500+</div>
+        <div class="impact-desc">End users trained and onboarded</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+        <div class="impact-num">40%</div>
+        <div class="impact-desc">Decision-making efficiency improved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-code" style="color:#2563c4;font-size:18px" aria-hidden="true"></i>
+      <h3>Core skills</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-briefcase" style="color:#1D9E75;font-size:18px" aria-hidden="true"></i>
+      <h3>Experience</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Merck Group</div>
+              <div class="exp-role">Business Intelligence Engineer</div>
+            </div>
+            <div class="exp-period">Jun 2023 – Jan 2026</div>
+          </div>
+          <div class="exp-pills">
+            <span class="exp-pill">Power BI</span><span class="exp-pill">DAX</span><span class="exp-pill">Azure Synapse</span><span class="exp-pill">RLS / OLS</span><span class="exp-pill">Power Automate</span><span class="exp-pill">SQL Server</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Designed end-to-end Power BI semantic models, DAX measures, and dashboards for Finance, Sales &amp; Operations across global business units.</li>
+            <li>Implemented dynamic Row-Level and Object-Level Security across 20+ country deployments with Azure AD group-based access management.</li>
+            <li>Applied query folding, composite models, aggregation tables, and incremental refresh — reducing report load times by 50%.</li>
+            <li>Automated report distribution via Power Automate, eliminating 80% of manual reporting effort in Finance &amp; Supply Chain.</li>
+            <li>Deployed and managed Power BI Service including workspace management, gateway config, and report embedding with 99.99% availability.</li>
+            <li>Delivered training to 500+ end users across 20+ countries, driving platform adoption and data literacy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot past"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Cognizant Technology Solutions</div>
+              <div class="exp-role">Business Data Analyst</div>
+            </div>
+            <div class="exp-period">Oct 2021 – Jun 2023</div>
+          </div>
+          <div class="exp-pills">
+            <span class="exp-pill">Qlik Sense</span><span class="exp-pill">QlikView</span><span class="exp-pill">Qlik NPrinting</span><span class="exp-pill">Python</span><span class="exp-pill">Snowflake</span><span class="exp-pill">BigQuery</span><span class="exp-pill">Airflow</span><span class="exp-pill">DBT</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Administered Qlik Sense platform for 2,000+ global users in Finance and Supply Chain — 99.99% uptime, 45% load time reduction.</li>
+            <li>Developed Qlik Sense, QlikView, and NPrinting apps automating management reporting — 80% reduction in manual effort.</li>
+            <li>Built scalable SQL and Python data pipelines (Snowflake, BigQuery) integrating OLAP sources, cutting prep time by 80%.</li>
+            <li>Implemented predictive demand forecasting with Python (Pandas, scikit-learn, Prophet) — 50% improvement in forecast accuracy.</li>
+            <li>Automated ETL workflows with DBT and Airflow on AWS, cutting reporting cycle from 5 hours to 30 minutes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot past"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Cognizant — Analytics &amp; BI Transformation</div>
+              <div class="exp-role">Programming Analyst / Project</div>
+            </div>
+            <div class="exp-period">Aug 2019 – Sep 2021</div>
+          </div>
+          <div class="exp-pills">
+            <span class="exp-pill">Power BI</span><span class="exp-pill">Tableau</span><span class="exp-pill">Qlik Sense</span><span class="exp-pill">Python</span><span class="exp-pill">SQL</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Led analytics &amp; BI transformation for a global pharma enterprise with 500+ stakeholders across 20+ countries.</li>
+            <li>Built KPI dashboards in Power BI, Qlik Sense, and Tableau — 40% improvement in decision-making efficiency.</li>
+            <li>Managed Qlik platform installation, upgrades, SSL via Venafi, and user access via Delinea.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-stack" style="color:#0E6B6B;font-size:18px" aria-hidden="true"></i>
+      <h3>Technology stack</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="tech-group">
+      <div class="tech-group-label">Business Intelligence</div>
+      <div class="tech-chips">
+        <span class="tech-chip featured">Power BI Desktop &amp; Service</span>
+        <span class="tech-chip featured">Qlik Sense</span>
+        <span class="tech-chip featured">QlikView</span>
+        <span class="tech-chip">Qlik NPrinting</span>
+        <span class="tech-chip">Qlik Cloud</span>
+        <span class="tech-chip">Tableau</span>
+      </div>
+    </div>
+    <div class="tech-group">
+      <div class="tech-group-label">Data &amp; Languages</div>
+      <div class="tech-chips">
+        <span class="tech-chip featured">DAX</span>
+        <span class="tech-chip featured">SQL</span>
+        <span class="tech-chip featured">Python</span>
+        <span class="tech-chip">PySpark</span>
+        <span class="tech-chip">Pandas</span>
+        <span class="tech-chip">NumPy</span>
+        <span class="tech-chip">scikit-learn</span>
+        <span class="tech-chip">Prophet</span>
+      </div>
+    </div>
+    <div class="tech-group">
+      <div class="tech-group-label">Cloud &amp; Infrastructure</div>
+      <div class="tech-chips">
+        <span class="tech-chip featured">Microsoft Azure</span>
+        <span class="tech-chip featured">Azure Synapse</span>
+        <span class="tech-chip">Azure DataLake</span>
+        <span class="tech-chip">Databricks</span>
+        <span class="tech-chip">Snowflake</span>
+        <span class="tech-chip">BigQuery</span>
+        <span class="tech-chip">AWS</span>
+        <span class="tech-chip">Airflow</span>
+        <span class="tech-chip">DBT</span>
+      </div>
+    </div>
+    <div class="tech-group">
+      <div class="tech-group-label">Workflow &amp; Governance</div>
+      <div class="tech-chips">
+        <span class="tech-chip">Git · GitHub Actions</span>
+        <span class="tech-chip">Power Automate</span>
+        <span class="tech-chip">REST APIs</span>
+        <span class="tech-chip">SharePoint</span>
+        <span class="tech-chip">JIRA · Confluence</span>
+        <span class="tech-chip">Agile · Scrum</span>
+        <span class="tech-chip">Venafi · Delinea</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-certificate" style="color:#BA7517;font-size:18px" aria-hidden="true"></i>
+      <h3>Certifications</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="cert-list">
+      <div class="cert-card">
+        <i class="ti ti-award" class="cert-icon" style="font-size:20px;color:#EF9F27;flex-shrink:0;margin-top:2px" aria-hidden="true"></i>
+        <div>
+          <div class="cert-name">Google Analytics Certification</div>
+          <div class="cert-issuer">Google · 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="ti ti-award" class="cert-icon" style="font-size:20px;color:#2563c4;flex-shrink:0;margin-top:2px" aria-hidden="true"></i>
+        <div>
+          <div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div>
+          <div class="cert-issuer">Microsoft · Jan 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="ti ti-award" class="cert-icon" style="font-size:20px;color:#1D9E75;flex-shrink:0;margin-top:2px" aria-hidden="true"></i>
+        <div>
+          <div class="cert-name">Azure Databricks &amp; Spark for Data Engineers</div>
+          <div class="cert-issuer">Hands-On Project · Jan 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="ti ti-award" class="cert-icon" style="font-size:20px;color:#0E6B6B;flex-shrink:0;margin-top:2px" aria-hidden="true"></i>
+        <div>
+          <div class="cert-name">Qlik Sense Analytics &amp; Development</div>
+          <div class="cert-issuer">Qlik Certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-head">
+      <i class="ti ti-school" style="color:#2563c4;font-size:18px" aria-hidden="true"></i>
+      <h3>Education</h3>
+      <div class="s-line"></div>
+    </div>
+    <div class="exp-card" style="display:flex;align-items:center;gap:16px">
+      <div style="width:48px;height:48px;border-radius:var(--border-radius-md);background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <i class="ti ti-building" style="font-size:22px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">B.Tech — Information Technology</div>
+        <div style="font-size:13px;color:var(--color-text-secondary);margin-top:2px">Jawaharlal Nehru Technological University, Kakinada</div>
+        <div style="font-size:12px;color:var(--color-text-tertiary);margin-top:2px">June 2016 – September 2020</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <div class="contact-left">
+      <h3>Let's connect</h3>
+      <p>Open to Data Science, BI, AI/ML, and Analytics Consulting roles across Germany &amp; Europe.</p>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <i class="ti ti-mail" aria-hidden="true"></i>
+        <a href="mailto:sujareethika09@gmail.com">sujareethika09@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-phone" aria-hidden="true"></i>
+        <a href="tel:+4915206650928">+49 152 0665 0928</a>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+        <a href="https://www.linkedin.com/in/sujareethikareddy-gopu-78543815b" target="_blank">linkedin.com/in/sujareethikareddy-gopu</a>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        <a href="#">Bad Bergzabern, Germany</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const skills = [
+  {name:"Power BI", pct:95, color:"#2563c4", icon:"ti-chart-bar"},
+  {name:"DAX", pct:92, color:"#1A4A8A", icon:"ti-code"},
+  {name:"Qlik Sense", pct:90, color:"#1D9E75", icon:"ti-chart-pie"},
+  {name:"QlikView", pct:85, color:"#0E6B6B", icon:"ti-database"},
+  {name:"SQL", pct:88, color:"#0D2B55", icon:"ti-table"},
+  {name:"Python", pct:80, color:"#BA7517", icon:"ti-brand-python"},
+  {name:"Azure / Cloud", pct:78, color:"#185FA5", icon:"ti-cloud"},
+  {name:"Data Modelling", pct:92, color:"#533AB7", icon:"ti-vector"},
+];
+const grid = document.getElementById('skills-grid');
+skills.forEach(s => {
+  grid.innerHTML += `<div class="skill-card">
+    <div class="skill-card-icon" style="background:${s.color}18">
+      <i class="ti ${s.icon}" style="color:${s.color}" aria-hidden="true"></i>
+    </div>
+    <div class="skill-card-name">${s.name}</div>
+    <div class="skill-bar"><div class="skill-fill" data-w="${s.pct}" style="width:0%;background:${s.color}"></div></div>
+    <div class="skill-pct">${s.pct}%</div>
+  </div>`;
+});
+setTimeout(()=>{
+  document.querySelectorAll('.skill-fill').forEach(el => {
+    el.style.width = el.dataset.w + '%';
+  });
+}, 200);
+</script>
